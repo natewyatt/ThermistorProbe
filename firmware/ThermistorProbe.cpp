@@ -1,15 +1,15 @@
-// ThermisterProbe - Library for reading thermister based temperature probes.
+// ThermistorProbe - Library for reading thermistor based temperature probes.
 // Contributions and influence from @BDub and @avidan
 // https://community.spark.io/t/thermistors-and-the-spark-core/1276
 
-#include "ThermisterProbe.h"
+#include "ThermistorProbe.h"
 #include "application.h"
 #include "math.h"
 
 // TermisterProbe constructor
 // pur - Pullup resistor value in ohms
 // adcRef - ADC reference value
-ThermisterProbe::ThermisterProbe(double pur, int adc)
+ThermistorProbe::ThermistorProbe(double pur, int adc)
 {
     _pur = pur;
     _adc = adc;
@@ -17,7 +17,7 @@ ThermisterProbe::ThermisterProbe(double pur, int adc)
 
 // Returns the temperature in Kelvin based off of the Steinhart-Hart equation.
 // http://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation
-double ThermisterProbe::getTempK(int pin, enum ProbeType probeType)
+double ThermistorProbe::getTempK(int pin, enum ProbeType probeType)
 {
     // Read in analog value
     int aval = analogRead(pin);
@@ -48,11 +48,11 @@ double ThermisterProbe::getTempK(int pin, enum ProbeType probeType)
 }
 
 // Returns temp in Celcius
-double ThermisterProbe::getTempC(int pin, enum ProbeType probeType) {
+double ThermistorProbe::getTempC(int pin, enum ProbeType probeType) {
     return getTempK(pin, probeType) - 273.15;
 }
 
 // Return temp in Fahrenheit
-double ThermisterProbe::getTempF(int pin, enum ProbeType probeType) {
+double ThermistorProbe::getTempF(int pin, enum ProbeType probeType) {
     return ((getTempC(pin, probeType) * 9.0) / 5.0 + 32.0);
 }

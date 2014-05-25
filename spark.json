@@ -1,0 +1,7 @@
+{
+  "name": "ThermistorProbe",
+  "author": "Nate Wyatt <coolnewt@users.noreply.github.com>",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "A simple library for using thermistor type temperature probes."
+}
